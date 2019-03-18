@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.bailm.vivychallenge"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://api.staging.vivy.com"'
+            buildConfigField "String", "AUTH_URL", '"https://auth.staging.vivy.com"'
+
+//            buildConfigField "String", "USER_NAME", 'androidChallenge@vivy.com'
+//            buildConfigField "String", "PASSOWRD", '88888888'
+        }
+        debug {
+//            buildConfigField "String", "USER_NAME", 'androidChallenge@vivy.com'
+//            buildConfigField "String", "PASSOWRD", '88888888'
+            buildConfigField "String", "BASE_URL", '"https://api.staging.vivy.com"'
+            buildConfigField "String", "AUTH_URL", '"https://auth.staging.vivy.com"'
+
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
+    implementation 'androidx.core:core-ktx:1.1.0-alpha04'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    implementation "com.google.dagger:dagger:${libraries.dagger2Version}"
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    // Dagger
+    implementation "com.google.dagger:dagger:${libraries.dagger2Version}"
+    kapt "com.google.dagger:dagger-compiler:${libraries.dagger2Version}"
+    kapt "com.google.dagger:dagger-android-processor:${libraries.dagger2Version}"
+    implementation "com.google.dagger:dagger-android-support:${libraries.dagger2Version}"
+    implementation "android.arch.lifecycle:extensions:${libraries.lifecycle}"
+
+    implementation "com.android.support:appcompat-v7:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:cardview-v7:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:design:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:support-vector-drawable:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:support-v4:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:animated-vector-drawable:${libraries.supportLibraryVersion}"
+    // database
+    implementation "com.android.support.constraint:constraint-layout:${libraries.constraintLayout}"
+    implementation "androidx.paging:paging-runtime-ktx:${libraries.pagingVersion}"
+    implementation "androidx.paging:paging-rxjava2-ktx:${libraries.pagingVersion}"
+
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${libraries.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${libraries.gsonConverterVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${libraries.retrofit}"
+    implementation "com.google.code.gson:gson:${libraries.gsonVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${libraries.rxjava2Version}"
+    implementation "io.reactivex.rxjava2:rxjava:${libraries.rxjava2Version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libraries.rxandroidVersion}"
+
+    implementation "com.github.bumptech.glide:glide:${libraries.glideVersion}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${libraries.glideVersion}"
+    implementation "com.orhanobut:logger:${libraries.logger}"
+    implementation "de.hdodenhof:circleimageview:${libraries.circleImageViewVersion}"
+
+    implementation "android.arch.paging:runtime:${libraries.pagingVersion}"
+
+    api "com.squareup.okhttp3:logging-interceptor:${libraries.okhttp}"
+
+
+}

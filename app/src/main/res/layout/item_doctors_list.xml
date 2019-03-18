@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+                name="doctor"
+                type="com.bailm.vivychallenge.data.api.model.search.Doctor"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                       xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                       xmlns:tools="http://schemas.android.com/tools"
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="80dp"
+                                                       android:orientation="vertical"
+                                                       android:paddingStart="8dp"
+                                                       android:paddingTop="4dp"
+                                                       android:paddingEnd="8dp"
+                                                       android:paddingBottom="4dp">
+
+        <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="@dimen/DIMEN_72DP"
+                android:layout_height="@dimen/DIMEN_72DP"
+                app:imageId="@{doctor.photoId}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:userId="@{doctor.id}"
+                tools:src="@mipmap/happydoctor"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#302F2F"/>
+
+
+        <ImageView
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_phone_black_36dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+                android:id="@+id/doctor_name"
+                style="@style/AppTheme.DoctorNameStyle"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="@dimen/SIZE_16_DP"
+                android:ellipsize="end"
+                android:gravity="start|top"
+                android:maxLines="1"
+                android:text="@{doctor.name}"
+                android:textSize="@dimen/TEXT_SIZE_20"
+                app:layout_constraintEnd_toStartOf="@id/call"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="12312312"/>
+
+
+
+        <TextView
+                android:id="@+id/address"
+                android:textSize="12sp"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:drawableStart="@drawable/ic_map_marker_black_18dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@{doctor.address}"
+                app:layout_constraintEnd_toStartOf="@id/call"
+                app:layout_constraintHorizontal_weight="0"
+                app:layout_constraintStart_toStartOf="@id/doctor_name"
+                app:layout_constraintTop_toBottomOf="@id/doctor_name"
+                tools:text="mecdiciyekey,mecdiciyekey,"/>
+        <TextView
+                android:id="@+id/rating"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="@id/address"
+                app:layout_constraintTop_toBottomOf="@id/address"
+                app:layout_constraintBottom_toBottomOf="@id/avatar"
+                android:maxLength="3"
+                android:text="@{`` + doctor.rating}"
+                android:drawableStart="@drawable/ic_star_face_black_18dp"
+
+
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

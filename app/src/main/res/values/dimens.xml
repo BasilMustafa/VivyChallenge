@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--FOR HEIGHTS AND MARGINS-->
+    <dimen name="SIZE_16_DP">16dp</dimen>
+    <!--FOR TEXT SIZES -->
+    <dimen name="TEXT_SIZE_18">18sp</dimen>
+    <dimen name="TEXT_SIZE_20">20sp</dimen>
+    <dimen name="DIMEN_72DP">72dp</dimen>
+
+</resources>

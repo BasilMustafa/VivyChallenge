@@ -1,0 +1,16 @@
+package com.bailm.vivychallenge.data.api.model.imagedetails
+
+data class File(
+    val absolute: Boolean,
+    val absolutePath: String,
+    val canonicalPath: String,
+    val directory: Boolean,
+    val `file`: Boolean,
+    val freeSpace: Int,
+    val hidden: Boolean,
+    val name: String,
+    val parent: String,
+    val path: String,
+    val totalSpace: Int,
+    val usableSpace: Int
+)

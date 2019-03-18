@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bailm.vivychallenge.ui.doctorslist.DoctorListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.doctorslist.DoctorListActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white">
+
+                <ImageView
+                    android:id="@+id/search"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:onClick="@{_ -> viewModel.doSearch()}"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_magnify_black_24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:maxLines="1"
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical|start"
+                    android:hint="SEARCH..."
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="@={viewModel.searchKey}"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/search"
+                    app:layout_constraintHorizontal_weight="0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/app_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintVertical_weight="1" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:gravity="center"
+            android:padding="32dp"
+            android:text="No Data Found For Your Search, Try Another SearchTerm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<androidx.core.widget.ContentLoadingProgressBar android:layout_width="match_parent" android:layout_height="40dp"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:visibility="@{viewModel.isLoading()}"/>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
